@@ -6,9 +6,10 @@ import Express from 'express';
 // DB Connection
 import createMongoConnection from './utils/dbConnection';
 
-// Router
+// Routers
 import gpsRouter from './router/gps';
-import authRouter from './router/auth';
+import userRouter from './router/user';
+import companyRouter from './router/company';
 
 Dotenv.config();
 const app = Express();
@@ -17,7 +18,8 @@ app.use(Cors());
 
 createMongoConnection();
 
-app.use('/auth', authRouter);
+app.use('/user', userRouter);
 app.use('/gps', gpsRouter);
+app.use('/company', companyRouter);
 
 app.listen(process.env.PORT!, () => console.log("Backend online"));

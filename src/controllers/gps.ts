@@ -16,3 +16,11 @@ export async function submitGpsLocation (req:Request, res:Response) {
     res.status(500).json({ message:'Server error' });
   }
 }
+
+export function getDriversByCompany (req:Request, res:Response) {
+  try {
+    
+  } catch (err:any) {
+    res.status(500).json({ message:'Server error' });
+  }
+}

@@ -3,14 +3,16 @@ import { Router } from 'express';
 
 // Controllers
 import { 
+  getDriversByCompany,
   submitGpsLocation
 } from '../controllers/gps';
 
 // Middlewares
-import { validateTokenMiddleware } from '../middlewares/auth';
+import { validateTokenMiddleware } from '../middlewares/user';
 
 const gpsRouter = Router();
 
-gpsRouter.post('/', validateTokenMiddleware, submitGpsLocation)
+gpsRouter.get('/', validateTokenMiddleware, getDriversByCompany);
+gpsRouter.post('/', validateTokenMiddleware, submitGpsLocation);
 
 export default gpsRouter;

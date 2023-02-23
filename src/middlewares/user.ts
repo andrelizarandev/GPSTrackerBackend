@@ -10,6 +10,13 @@ export const logInValueMiddleware = [
   body('username').isString(),
   body('password').isString(),
   validateValuesMiddleWare
+];
+
+export const submitDriverMiddelware = [
+  body('username').isString(),
+  body('password').isString(),
+  body('fullname').isString(),
+  validateValuesMiddleWare
 ]
 
 export function validateTokenMiddleware (req:Request, res:Response, next:NextFunction) {

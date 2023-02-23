@@ -1,6 +1,6 @@
 // Modules
-import { NextFunction, Request, Response } from "express";
 import { validationResult } from "express-validator";
+import { NextFunction, Request, Response } from "express";
 
 export function validateValuesMiddleWare (req:Request, res:Response, next:NextFunction) {
   try {
