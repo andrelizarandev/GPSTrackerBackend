@@ -3,6 +3,7 @@ import { Router } from 'express';
 
 // Controllers
 import { 
+  changeUserStatus,
   getUsersByCompany,
   loginController, 
   submitUser, 
@@ -24,5 +25,7 @@ driverRouter.post('/', [ validateTokenMiddleware, ...submitDriverMiddelware ], s
 driverRouter.post('/login', logInValueMiddleware, loginController);
 
 driverRouter.get('/validate', validateTokenMiddleware, validateTokenController);
+
+driverRouter.patch('/change-status/:id', [validateTokenMiddleware], changeUserStatus);
 
 export default driverRouter;

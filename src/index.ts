@@ -8,7 +8,7 @@ import createMongoConnection from './utils/dbConnection';
 
 // Routers
 import gpsRouter from './router/gps';
-import driverRouter from './router/user';
+import driverRouter from './router/driver';
 import companyRouter from './router/company';
 
 Dotenv.config();

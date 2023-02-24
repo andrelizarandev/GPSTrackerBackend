@@ -7,6 +7,16 @@ import { generateToken } from "../helpers/auth";
 // Models
 import CompanyModel from '../models/company';
 
+export async function validateCompanyToken (req:Request, res:Response) {
+  try {
+    const { tokenResult } = req.body;
+    const token = generateToken(tokenResult);
+    res.json({ token });
+  } catch (err:any) {
+    res.status(500).json({ message:'Server error' });
+  }
+}
+
 export async function submitCompany (req:Request, res:Response) {
   try {
     const newCompany = new CompanyModel(req.body);

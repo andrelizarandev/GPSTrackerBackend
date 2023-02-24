@@ -17,9 +17,11 @@ export async function submitGpsLocation (req:Request, res:Response) {
   }
 }
 
-export function getGPSLocationsByDriver (req:Request, res:Response) {
+export async function getGPSLocationsByDriver (req:Request, res:Response) {
   try {
-    
+    const { _id } = req.body;
+    const gpsResult = await GPSModel.find({ user_id:_id });
+    res.json({ data:gpsResult });
   } catch (err:any) {
     res.status(500).json({ message:'Server error' });
   }
