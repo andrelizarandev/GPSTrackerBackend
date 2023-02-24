@@ -8,7 +8,7 @@ import createMongoConnection from './utils/dbConnection';
 
 // Routers
 import gpsRouter from './router/gps';
-import userRouter from './router/user';
+import driverRouter from './router/user';
 import companyRouter from './router/company';
 
 Dotenv.config();
@@ -18,7 +18,7 @@ app.use(Cors());
 
 createMongoConnection();
 
-app.use('/user', userRouter);
+app.use('/driver', driverRouter);
 app.use('/gps', gpsRouter);
 app.use('/company', companyRouter);
 

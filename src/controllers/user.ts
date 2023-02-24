@@ -10,7 +10,8 @@ import UserModel from '../models/user';
 export async function getUsersByCompany (req:Request, res:Response) {
   try {
     const { tokenResult } = req.body;
-    const usersResult = UserModel.find({ companyId:tokenResult });
+    const usersResult = await UserModel.find({ companyId:tokenResult });
+    res.json({ data:usersResult });
   } catch (error:any) {
     res.status(500).json({ message:'Server error' });
   }

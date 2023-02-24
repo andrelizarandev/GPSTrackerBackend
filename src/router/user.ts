@@ -3,11 +3,11 @@ import { Router } from 'express';
 
 // Controllers
 import { 
+  getUsersByCompany,
   loginController, 
   submitUser, 
   validateTokenController 
 } from '../controllers/user';
-import { validateCompanyId } from '../middlewares/company';
 
 // Middlewares
 import { 
@@ -15,15 +15,14 @@ import {
   submitDriverMiddelware, validateTokenMiddleware
 } from '../middlewares/user';
 
-const userRouter = Router();
+const driverRouter = Router();
 
-// TODO: Validar que el id dentro del token exista en la tabla de companies
-userRouter.get('/', validateTokenMiddleware, )
+driverRouter.get('/', validateTokenMiddleware, getUsersByCompany);
 
-userRouter.post('/', [ validateTokenMiddleware, ...submitDriverMiddelware ], submitUser);
+driverRouter.post('/', [ validateTokenMiddleware, ...submitDriverMiddelware ], submitUser);
 
-userRouter.post('/login', logInValueMiddleware, loginController);
+driverRouter.post('/login', logInValueMiddleware, loginController);
 
-userRouter.get('/validate', validateTokenMiddleware, validateTokenController);
+driverRouter.get('/validate', validateTokenMiddleware, validateTokenController);
 
-export default userRouter;
+export default driverRouter;

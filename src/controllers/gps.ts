@@ -17,7 +17,7 @@ export async function submitGpsLocation (req:Request, res:Response) {
   }
 }
 
-export function getDriversByCompany (req:Request, res:Response) {
+export function getGPSLocationsByDriver (req:Request, res:Response) {
   try {
     
   } catch (err:any) {
