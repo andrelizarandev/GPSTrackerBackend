@@ -9,15 +9,10 @@ import {
 
 // Middlewares
 import { validateTokenMiddleware } from '../middlewares/user';
-import { getGPSLocationsByDriverValuesMiddleware } from '../middlewares/gps';
 
 const gpsRouter = Router();
 
-gpsRouter.post(
-  '/driver', 
-  [ validateTokenMiddleware, ...getGPSLocationsByDriverValuesMiddleware ],
-  getGPSLocationsByDriver
-);
+gpsRouter.post('/driver/:id/:date', [ validateTokenMiddleware ], getGPSLocationsByDriver);
 
 gpsRouter.post('/', validateTokenMiddleware, submitGpsLocation);
 
