@@ -9,6 +9,7 @@ export default async function createMongoConnection () {
     await mongoose.connect(dbConnection);
     console.log("DB Online");
   } catch (err:any) {
+    console.log(err);
     process.exit(0);
   }
 }
